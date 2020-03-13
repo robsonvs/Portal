@@ -1,0 +1,97 @@
+<div>
+  <h3>{{title}}</h3>
+  <h5>{{description}}</h5>
+</div>
+<hr/>
+
+<!-- <div [hidden]="submitted" style="width: 300px;"> -->
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" 
+             class="form-control" 
+             id="firstName" 
+             required 
+             [(ngModel)]="user.firstName" 
+             name="firstName">
+    </div>
+ 
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" 
+             class="form-control" 
+             id="lastName" 
+             required [(ngModel)]="user.lastName" 
+             name="lastName">
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" 
+             class="form-control" 
+             id="email" 
+             required [(ngModel)]="user.email" 
+             name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" 
+             class="form-control" 
+             id="password" 
+             required [(ngModel)]="user.password" 
+             name="password">
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+ 
+<!-- <div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newUser()">Add</button>
+</div> -->
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addressModal" data-whatever="@mdo">Address</button>
+
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addressModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="street" class="col-form-label">Street:</label>
+            <input type="text" [(ngModel)]="user.address.street" class="form-control" id="street">
+          </div>
+          <div class="form-group">
+            <label for="complement" class="col-form-label">Complement:</label>
+            <input type="text" [(ngModel)]="user.address.complement" class="form-control" id="complement">
+          </div>
+          <div class="form-group">
+            <label for="city" class="col-form-label">City:</label>
+            <input type="text" [(ngModel)]="user.address.city" class="form-control" id="city">
+          </div>
+          <div class="form-group">
+            <label for="state" class="col-form-label">State:</label>
+            <input type="text" [(ngModel)]="user.address.state" class="form-control" id="state">
+          </div>
+          <div class="form-group">
+            <label for="zipCode" class="col-form-label">Zip Code:</label>
+            <input type="text" [(ngModel)]="user.address.zipCode" class="form-control" id="zipCode">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>

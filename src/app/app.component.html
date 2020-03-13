@@ -1,13 +1,71 @@
 <app-header></app-header>
-<div class="container-fluid">
-  <div style="color: blue;">
-    <h1>{{title}}</h1>
-    <!-- <h3>{{description}}</h3> -->
+<main role="main">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Example headline.</h1>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Portfolio</h1>
+            <p>Projects, samples, and everything do you need to see about my jobs and caracteristics.</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Go to the Portfolio</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1>Resume.</h1>
+            <p>Resume .</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Go to the Resume</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
- 
-  <nav>
-    <a routerLink="users" class="btn btn-primary active" role="button" routerLinkActive="active">Users</a>
-    <a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Add</a>
-  </nav>
-  <router-outlet></router-outlet>
-</div>
+
+  <div class="container-fluid">  
+    <div class="container marketing">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</main>
+
+<hr/>  
+
+<!-- FOOTER -->
+<footer class="container">
+  <p class="float-right"><a href="#">Back to top</a></p>
+  <p>&copy; 2020 Nosbor Corpotation &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>

@@ -1,0 +1,28 @@
+<div style="color: rgb(119, 119, 175);">
+    <h3>{{title}}</h3>
+    <h5>{{description}}</h5>
+</div>
+<hr/>
+
+<mat-grid-list cols="4" rowHeight="fit" style="height: 600px" gutterSize="5px">
+  <div *ngFor="let pop of pops">
+    <mat-grid-tile>
+      <mat-card class="example-card" role="group">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{pop.breed}}</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{pop.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button>LIKE</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>

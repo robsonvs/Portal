@@ -1,7 +1,43 @@
-<h1>Customers</h1>
-<div *ngFor="let user of users" style="width: 300px;" class=".container-sm">
-  <app-user-detail [user]='user'></app-user-detail>
+<div style="color: rgb(119, 119, 175);">
+  <h3>{{ title }}</h3>
+  <h5>{{ description }}</h5>
 </div>
+<hr/>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Fist Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr scope="row" *ngFor="let user of users">
+        <th scope="row">{{ user.firstName }}</th>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td *ngIf="user.address != null">
+          <ul>
+            <li>{{ user.address.street }}</li>
+            <li>{{ user.address.complement }}</li>
+            <li>{{ user.address.city }}</li>
+            <li>{{ user.address.state }}</li>
+            <li>{{ user.address.zipCode }}</li>
+          </ul>
+        </td>
+        <td>
+          <button type="button" class="button is-small btn-warning" (click)="formUser(user)">Update</button>
+          &nbsp;
+          <button type="button" class="button is-small btn-danger" (click)='deleteUser(user)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 
 <div style="margin-top:20px;">
-  <button type="button" class="button btn-danger" (click)='deleteUser()'>Delete All</button>
-</div>
+  <button type="button" class="button btn-danger" (click)='deleteAllUser()'>Delete All</button>
+</div> -->

@@ -1,0 +1,38 @@
+<div style="color: rgb(119, 119, 175);">
+  <h3>{{title}}</h3>
+  <h5>{{description}}</h5>
+</div>
+<hr/>
+
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="breed">Breed</label>
+      <input type="text" 
+             class="form-control" 
+             id="breed" 
+             required [(ngModel)]="pop.breed" 
+             name="breed">
+    </div>
+ 
+    <div class="form-group">
+      <label for="descriptio">Description</label>
+      <textarea type="text" 
+             class="form-control" 
+             id="descriptio" 
+             required [(ngModel)]="pop.description" 
+             name="descriptio"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="picture">Picture</label>
+      <input type="text" 
+             class="form-control" 
+             id="picture" 
+             required [(ngModel)]="pop.picture" 
+             name="picture">
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

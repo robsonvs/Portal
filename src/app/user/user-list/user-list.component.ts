@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user-service';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
+
+import { UserService } from 'src/app/service/user-service';
+import { User } from 'src/app/class/User';
 
 @Component({
   selector: 'app-user-list',
@@ -9,7 +11,12 @@ import { map } from 'rxjs/operators';
 })
 export class UserListComponent implements OnInit {
 
-  users: any;
+  title = "List of Users";
+  description = "Page content the list of Users.";
+ 
+  @Input() user: User;
+  users: User[];
+  submitted = false;
  
   constructor(private userService: UserService) { }
  
@@ -28,8 +35,25 @@ export class UserListComponent implements OnInit {
       this.users = users;
     });
   }
+  
+  formUser(user: User): void {
+    this.submitted = true;
+    this.user = user;
+  }
+
+  updateUser(user: User) {
+    this.userService
+      .updateUser(this.user.id, user)
+      .catch(err => console.log(err));
+  }
  
-  deleteUser() {
+  deleteUser(user: User) {
+    this.userService
+      .deleteUser(user.id)
+      .catch(err => console.log(err));
+  }
+
+  deleteAllUser() {
     this.userService.deleteAll();
   }
 

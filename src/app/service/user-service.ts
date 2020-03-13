@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { User } from './user/User';
+import { User } from '../class/User';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +19,14 @@ export class UserService {
     this.usersRef.add({...user});
   }
  
-  updateUser(id: string, value: any): Promise<void> {
+  updateUser(id: string, value: User): Promise<void> {
     return this.usersRef.doc(id).update(value);
   }
  
   deleteUser(id: string): Promise<void> {
     return this.usersRef.doc(id).delete();
   }
- 
+
   getUserList(): AngularFirestoreCollection<User> {
     return this.usersRef;
   }
